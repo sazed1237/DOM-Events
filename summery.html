@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summery: js DOM Evets</title>
+</head>
+<body>
+    <h1>Summery DOM Events</h1>
+    
+    <button onclick="makeGreen()">make green</button>
+    <button id="make-red">make red</button>
+
+    <br>
+    <br>
+    <br>
+    <h2>Updated with new entry</h2>
+    <p id="display-here">defult text</p>
+    <input id="user-input-field" type="text" placeholder="enter your text">
+    <button id="btn-enter">enter</button>
+
+    <br>
+    <br>
+    <br>
+    <h2>Delete with Confirmation</h2>
+    <p id="deleting-item">Delete me!</p>
+    <input id="user-input" type="text" placeholder="type delete for confirm">
+    <button id="btn-delete" disabled>Delete</button>
+
+
+    <script>
+        // ----------button click handler-------------
+        function makeGreen(){
+            document.body.style.backgroundColor = 'green';
+        }
+
+        document.getElementById('make-red').addEventListener('click', function(){
+            document.body.style.backgroundColor = 'red';
+        })
+// --------------------display input text form user---------------------------------
+
+        document.getElementById('btn-enter').addEventListener('click', function(){
+            const userInput = document.getElementById('user-input-field');
+            // console.log(userInput.value)
+            const outputValue = userInput.value;
+
+            const defultText = document.getElementById('display-here');
+            console.log(defultText.innerText);
+            defultText.innerText = outputValue;
+
+            userInput.value ='';
+
+        })
+
+        // ---------delete text/somethig with conformation form user--------
+        const InputUser = document.getElementById('user-input').addEventListener('keyup', function(event){
+            // console.log(event.target.value)
+            const inputValue = event.target.value;
+            const deleteBtn = document.getElementById('btn-delete')
+            if(inputValue === 'delete'){
+                deleteBtn.removeAttribute('disabled');
+                
+            }
+            else{
+                deleteBtn.setAttribute('disabled', true)
+            }
+            
+            document.getElementById('btn-delete').addEventListener('click', function(){
+                // console.log('delete me')
+                
+                const deletingItem = document.getElementById('deleting-item');
+                deletingItem.style.display = 'none'
+                
+                
+            })
+            InputUser.value = '';
+        })
+
+
+
+    </script>
+</body>
+</html>

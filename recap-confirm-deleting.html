@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Deleting</title>
+</head>
+<body>
+  <h1>Recap to deleting  mathod</h1>
+    
+  <h2 id="deleting-item">Deleting item</h2>
+  <input type="text" name="" id="input-value" placeholder="please type 'Delete' to confirm ">
+  <button id="btn-delete" disabled>Delete</button>
+
+
+  <script>
+    document.getElementById('input-value').addEventListener('keyup', function(event){
+        const inputValue = event.target.value;
+        const deleteBtn = document.getElementById('btn-delete');
+
+        if(inputValue === 'delete'){
+            deleteBtn.removeAttribute('disabled');
+        }
+        else{
+            deleteBtn.setAttribute('disabled', true);
+        }
+    })
+
+    document.getElementById('btn-delete').addEventListener('click', function(){
+        const deletingItem = document.getElementById('deleting-item');
+        deletingItem.style.display = 'none';
+    })
+  </script>
+</body>
+</html>

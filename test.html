@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test myself</title>
+</head>
+<body>
+    <h1>Testing Page</h1>
+    <p id="show-input-value-by-user">Default text</p>
+    <input type="text" name="" id="user-input">
+    <button id="submit-btn">submit</button>
+
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function(){
+            const userInput = document.getElementById('user-input');
+            // console.log(userInput.value);
+            const inputValue = userInput.value
+
+            // where to show this input value
+            const showingInputValue = document.getElementById('show-input-value-by-user');
+            showingInputValue.innerText = inputValue;
+            
+            // remove input field when updated input value
+            userInput.value = '';
+        })
+    </script>
+
+</body>
+</html>

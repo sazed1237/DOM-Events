@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Deligate</title>
+</head>
+<body>
+    <h1>Explore Event Deligate</h1>
+
+    <section>
+        <ul id="items-container">
+            <li class="item">Lorem, ipsum dolor.</li>
+            <li class="item">Magnam, ipsum reprehenderit?</li>
+            <li class="item">Unde, quos voluptatem.</li>
+            <li class="item">Libero, magnam officiis?</li>
+            <li class="item">Minus, atque repudiandae?</li>
+            <li class="item">Dolore, facere iste?</li>
+            <li class="item">Modi, nemo quia.</li>
+            <li class="item">Magnam, eos officiis.</li>
+            <li class="item">Cumque, reprehenderit tempore?</li>
+            <li class="item">Quo, quaerat magnam?</li>
+        </ul>
+        <button id="btn-add-item">Add Item</button>
+    </section>
+
+    <script>
+        // const items = document.getElementsByClassName('item');
+        
+        // for(item of items){
+        //     item.addEventListener('click', function(event){
+        //         event.target.parentNode.removeChild(event.target);
+        //         // console.log(event.target.parentNode.removeChild(event.target))
+        //     })
+
+        // }
+
+        document.getElementById('items-container').addEventListener('click', function(event){
+            // console.log(event.target)
+            event.target.parentNode.removeChild(event.target)
+        })
+
+
+        document.getElementById('btn-add-item').addEventListener('click', function(){
+            // console.log('added new item')
+            const itemsContainer = document.getElementById('items-container');
+            
+            const li = document.createElement('li');
+            li.innerText = 'This is Brand new Item';
+            li.classList.add('item');
+            itemsContainer.appendChild(li);
+        })
+    </script>
+</body>
+</html>
